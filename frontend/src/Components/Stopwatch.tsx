@@ -5,6 +5,7 @@ import "../fonts/digital-7.ttf";
 import "../fonts/digital-7 (italic).ttf";
 import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
+import sand from "../asset/sand.png";
 
 export const Stopwatch = () => {
   const [time, setTime] = useState(0);
@@ -22,10 +23,9 @@ export const Stopwatch = () => {
     return () => clearInterval(interval);
   }, [running]);
   return (
-    <div
-      // style={{ width: "100vw", height: "100vh", backgroundColor: "#1d1f20" }}
-    >
-      <div className="stopwatch" id="box">
+    <div className="stopMain">
+      <img style={{ width: "100px" }} src={sand} alt="" />
+      <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
             {("0" + Math.floor((time / 1000) % 60)).slice(-2)}:

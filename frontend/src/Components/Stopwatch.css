@@ -1,91 +1,72 @@
 @font-face {
-  font-family: "Digital"; /*Can be any text*/
+  font-family: "Digital";
   src: local("digital-7"), url("../fonts/digital-7.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DigitalI"; /*Can be any text*/
+  font-family: "DigitalI";
   src: local("digital-7 (italic)"),
     url("../fonts/digital-7 (italic).ttf") format("truetype");
 }
 @font-face {
-  font-family: "DigitalMI"; /*Can be any text*/
+  font-family: "DigitalMI";
   src: local("digital-7 (mono italic)"),
     url("../fonts/digital-7 (mono italic).ttf") format("truetype");
 }
 @font-face {
-  font-family: "DigitalM"; /*Can be any text*/
+  font-family: "DigitalM";
   src: local("digital-7 (mono)"),
     url("../fonts/digital-7 (mono).ttf") format("truetype");
 }
 @font-face {
-  font-family: "Young"; /*Can be any text*/
+  font-family: "Young";
   src: local("Young Style"), url("../fonts/Young Style.ttf") format("truetype");
 }
 
 * {
-  /* background-color: #1d1f20; */
+  background-color: #1d1f20;
+}
+.stopMain {
+  width: 50%;
+  margin: auto;
 }
 
 .container {
   font-family: "DigitalM";
-  font-size: 40px;
-  color: red;
+  font-size: 6vw;
+  color: white;
 }
 .buttonText {
   font-family: "Young";
-  font-size: 40px;
-  margin: 50px;
-}
-#box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 500px;
-  color: white;
-  font-size: 2.5rem;
-  margin: auto;
   margin-top: 10%;
+  font-size: 4vw;
+  background: linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .stopwatch {
-  --borderWidth: 6px;
-  background: #1d1f20;
-  position: relative;
-  border-radius: var(--borderWidth);
-}
-.stopwatch:after {
-  content: "";
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(
-    60deg,
-    #f79533,
-    #f37055,
-    #ef4e7b,
-    #a166ab,
-    #5073b8,
-    #1098ad,
-    #07b39b,
-    #6fba82
-  );
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  /* background-size: 300% 300%; */
+  margin: 50px auto;
+  /* background-color: #1d1f20; */
+  border: 7px solid transparent;
+  letter-spacing: 1em;
+  font-weight: 500;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes animatedgradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+.demo {
+  background-image: linear-gradient(#1d1f20, #1d1f20),
+    linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-origin: padding-box, border-box;
+  text-align: center;
+}
+
+@keyframes highlight {
   100% {
-    background-position: 0% 50%;
+    background-position: 0 0, 0 0;
   }
 }

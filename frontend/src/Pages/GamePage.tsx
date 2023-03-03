@@ -1,10 +1,10 @@
-import React from 'react'
-import { Stopwatch } from '../Components/Stopwatch'
+import React from "react";
+import { Stopwatch } from "../Components/Stopwatch";
 
 export const GamePage = () => {
   return (
     <div>
-        <Stopwatch/>
+      <Stopwatch />
     </div>
-  )
-}
+  );
+};
