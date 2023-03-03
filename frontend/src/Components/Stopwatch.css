@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Digital"; /*Can be any text*/
+  src: local("digital-7"), url("../fonts/digital-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DigitalI"; /*Can be any text*/
+  src: local("digital-7 (italic)"),
+    url("../fonts/digital-7 (italic).ttf") format("truetype");
+}
+@font-face {
+  font-family: "DigitalMI"; /*Can be any text*/
+  src: local("digital-7 (mono italic)"),
+    url("../fonts/digital-7 (mono italic).ttf") format("truetype");
+}
+@font-face {
+  font-family: "DigitalM"; /*Can be any text*/
+  src: local("digital-7 (mono)"),
+    url("../fonts/digital-7 (mono).ttf") format("truetype");
+}
+@font-face {
+  font-family: "Young"; /*Can be any text*/
+  src: local("Young Style"), url("../fonts/Young Style.ttf") format("truetype");
+}
+
+.container {
+  font-family: "DigitalM";
+  font-size: 40px;
+  /* color: red; */
+}
+.buttonText {
+  font-family: "Young";
+  font-size: 40px;
+  margin: 50px;
+}
