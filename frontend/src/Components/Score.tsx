@@ -1,14 +1,29 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react'
-import React from 'react'
+import {
+  Box,
+  Button,
+  Container,
+  Heading,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import React from "react";
 
-export const Score = (prop:any) => {
-    // console.log(prop)
+export const Score = (prop: any) => {
+  // console.log(prop)
   return (
-    <div>
-        <Container border={'1px'} w={'17em'}>
-        <Heading size={'sm'}>Round {prop.count}</Heading>
-        <Text>{prop.props}</Text>
-        </Container>
+    <div style={{ border: "0px solid", width: "100%" }}>
+      <Button
+        colorScheme={"blue"}
+        border={"1px"}
+        h={"auto"}
+        width={"90%"}
+        p={"1"}
+      >
+        <VStack>
+          <Heading size={"sm"}>Round {prop.count}</Heading>
+          <Text>{prop.props}</Text>
+        </VStack>
+      </Button>
     </div>
-  )
-}
+  );
+};
