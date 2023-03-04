@@ -23,10 +23,10 @@
 }
 
 * {
-  background-color: #1d1f20;
+  /* background-color: #1d1f20; */
 }
 .stopMain {
-  width: 90%;
+  width: 70%;
   margin: auto;
 }
 
@@ -74,9 +74,29 @@
 .tiktok {
   font-family: "Young";
   font-size: 4vw;
-  margin-left: 3%;
-  margin-top:1%;
+  margin-left: 1%;
+  margin-top: 1%;
   background: linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.gameMain {
+  display: flex;
+  gap: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .stopMain {
+    width: 50%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 425px) {
+  .gameMain {
+    flex-direction: column;
+  }
+  .container {
+    font-size: 2vw;
+  }
 }

@@ -39,10 +39,9 @@ export const SignupPage = () => {
   };
 
   const handleSignup = async () => {
-
     try {
       const res = await axios.post(
-        "http://localhost:4000/UserAuth/register",
+        "https://coral-coral-wig.cyclic.app/UserAuth/register",
         data
       );
       toast({
@@ -51,18 +50,15 @@ export const SignupPage = () => {
         duration: 9000,
         isClosable: true,
       });
-      if(res.data.msg === "User already exists"){
-        return 
-      }else{
-            setLoginPageStatus(!LoginPageStatus);
-
+      if (res.data.msg === "User already exists") {
+        return;
+      } else {
+        setLoginPageStatus(!LoginPageStatus);
       }
       console.log(res);
     } catch (err) {
       console.log(err);
     }
-
-
   };
 
   const HandelChangeLogin = () => {
@@ -70,7 +66,7 @@ export const SignupPage = () => {
   };
   return (
     <Box
-    border="1px solid black"
+      border="1px solid black"
       h="100%"
       pb="10rem"
       backgroundSize={"cover"}
@@ -125,9 +121,10 @@ export const SignupPage = () => {
                       <HStack>
                         <Box>
                           <FormLabel>
-                            <Text>First Name</Text>
+                            <Text color={"white"}>First Name</Text>
                           </FormLabel>
                           <Input
+                          color={'white'}
                             name="first_name"
                             onChange={(e) => HandelFormChange(e)}
                             type="text"
@@ -136,9 +133,10 @@ export const SignupPage = () => {
                         </Box>
                         <Box>
                           <FormLabel>
-                            <Text>Last Name</Text>
+                            <Text color={"white"}>Last Name</Text>
                           </FormLabel>
                           <Input
+                          color={'white'}
                             name="last_name"
                             onChange={(e) => HandelFormChange(e)}
                             type="text"
@@ -147,10 +145,11 @@ export const SignupPage = () => {
                         </Box>
                       </HStack>
                       <FormLabel>
-                        <Text>User Name</Text>
+                        <Text color={"white"}>User Name</Text>
                       </FormLabel>
                       <Input
                         name="user_name"
+                        color={'white'}
                         onChange={(e) => HandelFormChange(e)}
                         type="text"
                         value={data.user_name}
@@ -165,11 +164,12 @@ export const SignupPage = () => {
                                             value={data.email}
                                         /> */}
                       <FormLabel>
-                        <Text>Password</Text>
+                        <Text color={"white"}>Password</Text>
                       </FormLabel>
                       <InputGroup>
                         <Input
                           name="password"
+                          color={'white'}
                           onChange={(e) => HandelFormChange(e)}
                           type={showPassword ? "text" : "Password"}
                           value={data.password}
@@ -218,12 +218,16 @@ export const SignupPage = () => {
                 </Flex>
               </Flex>
             )}
-            <Box w={["100%", "50%"]} m="auto" mr="6px" display={["none", "grid"]}>
+            <Box
+              w={["100%", "50%"]}
+              m="auto"
+              mr="6px"
+              display={["none", "grid"]}
+            >
               <Center>
                 {" "}
                 <Image
-                h="124%"
-
+                  h="119%"
                   borderRadius={"5px"}
                   src="https://i.gifer.com/7kfO.gif"
                 />
