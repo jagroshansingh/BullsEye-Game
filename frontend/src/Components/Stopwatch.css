@@ -37,7 +37,7 @@
 }
 .buttonText {
   font-family: "Young";
-  margin-top: 10%;
+  /* margin-top: 10%; */
   font-size: 4vw;
   background: linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
   -webkit-background-clip: text;
