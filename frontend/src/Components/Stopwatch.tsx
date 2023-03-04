@@ -68,6 +68,8 @@ export const Stopwatch = ({setscore,score}:any) => {
                 setRunning(false);
                 setBtn(2);
                 setScoreBoard((prevScoreBoard) => [...scoreBoard, time])
+                console.log(scoreBoard);
+                
               }}
             >
               Stop
