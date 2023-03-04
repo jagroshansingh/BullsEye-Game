@@ -7,7 +7,8 @@ import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
 
-export const Stopwatch = () => {
+export const Stopwatch = ({setscore,score}:any) => {
+  const [count,setcount]=useState(0)
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
@@ -66,8 +67,7 @@ export const Stopwatch = () => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                // setNames(prevNames => [...prevNames, 'Bob'])
-                setScoreBoard((prevScoreBoard) => [...scoreBoard, time]);
+                setScoreBoard((prevScoreBoard) => [...scoreBoard, time])
               }}
             >
               Stop

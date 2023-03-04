@@ -1,16 +1,16 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { DemoPage } from "./Pages/DemoPage";
 import { GamePage } from "./Pages/GamePage";
+import { ScoreBoard } from "./Components/ScoreBoard";
+import { Box, HStack } from "@chakra-ui/react";
+import { SignupPage } from "./Pages/LoginPage/SignUp/SignupPage";
 
 function App() {
   return (
     <div className="App">
-      {/* <DemoPage/> */}
-      <div>
-        <GamePage />
-      </div>
+      <GamePage />
+      {/* <SignupPage/> */}
     </div>
   );
 }
