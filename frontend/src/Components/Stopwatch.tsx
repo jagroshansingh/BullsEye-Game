@@ -7,6 +7,7 @@ import "../fonts/digital-7 (italic).ttf";
 import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
+import axios from "axios";
 
 export const Stopwatch = ({ setscore, score }: any) => {
   const [time, setTime] = useState(0);
@@ -47,6 +48,18 @@ export const Stopwatch = ({ setscore, score }: any) => {
     conn();
   }, [score]);
 
+  
+  const record = () => {
+    let data = { playername: 'xyz', score: Math.abs(10000 - time), timestamp:time };
+    axios({
+      method: "post",
+      url: "http://localhost:9999/record",
+      data,
+    })
+      // .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="stopMain">
       <Confetti
@@ -84,7 +97,8 @@ export const Stopwatch = ({ setscore, score }: any) => {
                 setRunning(false);
                 setBtn(2);
                 setscore((prevscore: any) => [...score, time]);
-                console.log(setscore);
+                record();
+                // console.log(setscore);
               }}
             >
               Stop
