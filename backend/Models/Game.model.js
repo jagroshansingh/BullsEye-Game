@@ -1,8 +1,9 @@
 const mongoose=require('mongoose')
 
 const gameSchema=mongoose.Schema({
-    playerid:String,
-    score:String,
+    playername:String,
+    score:Number,
+    timestamp:String
 },{versionKey:false})
 
 const GameModel=mongoose.model('allscore',gameSchema)
