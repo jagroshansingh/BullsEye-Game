@@ -27,6 +27,14 @@ export const ScoreBoard = ({score}:any) => {
           m="6px"
           h={"68vh"}
           overflow={'hidden'}
+          overflowY={'auto'}
+          sx={
+            { 
+           '::-webkit-scrollbar':{
+                  display:'none'
+              }
+           }
+         }
         >
           <Heading size={"lg"} className={'Head'}>Score-Board</Heading>
           {score?.map((each:any, i:any) => (

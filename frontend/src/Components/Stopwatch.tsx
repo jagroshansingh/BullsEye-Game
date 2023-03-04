@@ -8,11 +8,10 @@ import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
 
 export const Stopwatch = ({setscore,score}:any) => {
-  const [count,setcount]=useState(0)
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
-  const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
+  // const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
   // console.log("scoreBoard", scoreBoard);
   useEffect(() => {
     let interval: any;
@@ -29,17 +28,7 @@ export const Stopwatch = ({setscore,score}:any) => {
   
   return (
     <div className="stopMain">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "5%",
-          gap: "5%",
-        }}
-      >
-        <img style={{ width: "10%" }} src={sand} alt="" />
-        <h1 className="buttonText">Tik Tik Tok</h1>
-      </div>
+      
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
@@ -67,8 +56,8 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                setScoreBoard((prevScoreBoard) => [...scoreBoard, time])
-                console.log(scoreBoard);
+                setscore((prevscore:any) => [...score, time])
+                console.log(setscore);
                 
               }}
             >
