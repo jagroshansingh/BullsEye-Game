@@ -14,13 +14,13 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { json } from "stream/consumers";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = ({ HandelChangeLogin }: any) => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverLoading, SetServerLoading] = useState(false);
   const toast = useToast();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [data, setdata] = useState({
     password: "",
     user_name: "",
@@ -50,7 +50,7 @@ export const LoginPage = ({ HandelChangeLogin }: any) => {
       if (res.data.msg === "User login successfully") {
         console.log(res.data);
         localStorage.setItem("gameData", JSON.stringify(res.data));
-        // navigate("/game");
+        navigate("/game");
       }
       console.log(res);
     } catch (err) {

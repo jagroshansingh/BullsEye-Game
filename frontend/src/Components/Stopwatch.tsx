@@ -50,7 +50,7 @@ export const Stopwatch = ({ setscore, score }: any) => {
 
   const record = () => {
     let data = {
-      playername: "xyz",
+      playername: JSON.parse(localStorage.getItem('gameData')!).name,
       score: Math.abs(10000 - time),
       timestamp: time,
     };
