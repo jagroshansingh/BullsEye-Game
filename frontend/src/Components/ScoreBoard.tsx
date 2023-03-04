@@ -6,7 +6,7 @@ import "./ScoreBoard.css";
 export const ScoreBoard = ({ score }: any) => {
   // const [score, setscore] = React.useState(["one", "two", "three"]);
   return (
-    <div style={{ width: "20%" }}>
+    <div className="scoreMain">
       <Box
         borderRadius={"5px"}
         color={"white"}

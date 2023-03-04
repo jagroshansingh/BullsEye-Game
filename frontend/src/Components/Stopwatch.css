@@ -88,15 +88,25 @@
 
 @media screen and (max-width: 768px) {
   .stopMain {
-    width: 50%;
+    width: 90%;
     margin: auto;
   }
-}
-@media screen and (max-width: 425px) {
   .gameMain {
     flex-direction: column;
   }
+}
+@media screen and (max-width: 425px) {
   .container {
     font-size: 2vw;
+  }
+  .stopMain {
+    width: 90%;
+    margin: auto;
+  }
+  .buttonText {
+    font-size: 8vw;
+  }
+  .container {
+    font-size: 10vw;
   }
 }

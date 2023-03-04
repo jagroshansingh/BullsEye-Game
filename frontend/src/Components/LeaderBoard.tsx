@@ -19,7 +19,7 @@ export const LeaderBoard = (score:any) => {
     fetchData();
   }, [data,score]);
   return (
-    <div style={{ width: "20%" }}>
+    <div className="leaderMain">
       <Box
         borderRadius={"5px"}
         color={"white"}
