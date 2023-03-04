@@ -1,10 +1,23 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
-import React from "react";
-import { Score } from "./Score";
+import React, { useEffect, useState } from "react";
 import "./LeaderBoard.css";
+import { Leader } from "./Leader";
+import axios from "axios";
 
-export const LeaderBoard = ({ score }: any) => {
+export const LeaderBoard = (score:any) => {
   // const [score, setscore] = React.useState(["one", "two", "three"]);
+  const [data, setData] = useState([]);
+
+  const fetchData = () => {
+    axios
+      .get("https://coral-coral-wig.cyclic.app/record/leaderboard")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [data,score]);
   return (
     <div style={{ width: "20%" }}>
       <Box
@@ -35,8 +48,8 @@ export const LeaderBoard = ({ score }: any) => {
           <Heading size={"md"} className={"Head"}>
             Leader-Board
           </Heading>
-          {score?.map((each: any, i: any) => (
-            <Score key={i} props={each} count={i + 1} />
+          {data?.map((each: any, i: any) => (
+            <Leader key={i} props={each} count={i + 1} />
           ))}
         </VStack>
       </Box>

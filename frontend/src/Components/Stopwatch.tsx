@@ -48,12 +48,15 @@ export const Stopwatch = ({ setscore, score }: any) => {
     conn();
   }, [score]);
 
-  
   const record = () => {
-    let data = { playername: 'xyz', score: Math.abs(10000 - time), timestamp:time };
+    let data = {
+      playername: "xyz",
+      score: Math.abs(10000 - time),
+      timestamp: time,
+    };
     axios({
       method: "post",
-      url: "http://localhost:9999/record",
+      url: "https://coral-coral-wig.cyclic.app/record",
       data,
     })
       // .then((res) => console.log(res))
