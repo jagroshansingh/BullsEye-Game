@@ -4,6 +4,7 @@ import { Stopwatch } from "../Components/Stopwatch";
 import sand from "../asset/sand.png";
 import "../Components/Stopwatch.css";
 import { border } from "@chakra-ui/react";
+import { LeaderBoard } from "../Components/LeaderBoard";
 
 export const GamePage = () => {
   const [score, setscore] = React.useState([]);
@@ -14,7 +15,6 @@ export const GamePage = () => {
       <div
         style={{
           display: "flex",
-          border: "1px solid yellow",
           justifyContent: "center",
         }}
       >
@@ -22,6 +22,7 @@ export const GamePage = () => {
         <h1 className="tiktok">Tik Tik Tok</h1>
       </div>
       <div style={{ display: "flex", gap: "2%" }}>
+        <LeaderBoard score={score} />
         <Stopwatch setscore={setscore} score={score} />
         <ScoreBoard score={score} />
       </div>

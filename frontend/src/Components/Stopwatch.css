@@ -74,6 +74,8 @@
 .tiktok {
   font-family: "Young";
   font-size: 4vw;
+  margin-left: 3%;
+  margin-top:1%;
   background: linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

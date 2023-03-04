@@ -1,5 +1,6 @@
 import { Button, HStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import "./Stopwatch.css";
 import "../fonts/digital-7.ttf";
 import "../fonts/digital-7 (italic).ttf";
@@ -7,10 +8,27 @@ import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
 
-export const Stopwatch = ({setscore,score}:any) => {
+export const Stopwatch = ({ setscore, score }: any) => {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
+  const colors = ["red", "pink", "gold", "white"];
+  const conn = () => {
+    if (time === 10000) {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
+    } else {
+      setHeight(0);
+      setWidth(0);
+    }
+    setTimeout(() => {
+      console.log("Delayed for 1 second.");
+      setHeight(0);
+      setWidth(0);
+    }, 10000);
+  };
   // const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
   // console.log("scoreBoard", scoreBoard);
   useEffect(() => {
@@ -25,10 +43,19 @@ export const Stopwatch = ({setscore,score}:any) => {
     return () => clearInterval(interval);
   }, [running]);
 
-  
+  useEffect(() => {
+    conn();
+  }, [score]);
+
   return (
     <div className="stopMain">
-      
+      <Confetti
+        style={{ background: "transparent" }}
+        numberOfPieces={300}
+        width={width}
+        height={height}
+        colors={colors}
+      />
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
@@ -56,9 +83,8 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                setscore((prevscore:any) => [...score, time])
+                setscore((prevscore: any) => [...score, time]);
                 console.log(setscore);
-                
               }}
             >
               Stop
