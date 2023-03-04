@@ -1,5 +1,6 @@
 import { Button, HStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import "./Stopwatch.css";
 import "../fonts/digital-7.ttf";
 import "../fonts/digital-7 (italic).ttf";
@@ -12,6 +13,23 @@ export const Stopwatch = ({ setscore, score }: any) => {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
+  const colors = ["red", "pink", "gold", "white"];
+  const conn = () => {
+    if (time === 10000) {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
+    } else {
+      setHeight(0);
+      setWidth(0);
+    }
+    setTimeout(() => {
+      console.log("Delayed for 1 second.");
+      setHeight(0);
+      setWidth(0);
+    }, 10000);
+  };
   // const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
   // console.log("scoreBoard", scoreBoard);
   useEffect(() => {
@@ -26,6 +44,11 @@ export const Stopwatch = ({ setscore, score }: any) => {
     return () => clearInterval(interval);
   }, [running]);
 
+  useEffect(() => {
+    conn();
+  }, [score]);
+
+  
   const record = () => {
     let data = { playername: 'xyz', score: Math.abs(10000 - time), timestamp:time };
     axios({
@@ -39,6 +62,13 @@ export const Stopwatch = ({ setscore, score }: any) => {
 
   return (
     <div className="stopMain">
+      <Confetti
+        style={{ background: "transparent" }}
+        numberOfPieces={300}
+        width={width}
+        height={height}
+        colors={colors}
+      />
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">

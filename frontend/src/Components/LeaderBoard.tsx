@@ -1,9 +1,9 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Score } from "./Score";
-import "./ScoreBoard.css";
+import "./LeaderBoard.css";
 
-export const ScoreBoard = ({ score }: any) => {
+export const LeaderBoard = ({ score }: any) => {
   // const [score, setscore] = React.useState(["one", "two", "three"]);
   return (
     <div style={{ width: "20%" }}>
@@ -33,7 +33,7 @@ export const ScoreBoard = ({ score }: any) => {
           }}
         >
           <Heading size={"md"} className={"Head"}>
-            Score-Board
+            Leader-Board
           </Heading>
           {score?.map((each: any, i: any) => (
             <Score key={i} props={each} count={i + 1} />
