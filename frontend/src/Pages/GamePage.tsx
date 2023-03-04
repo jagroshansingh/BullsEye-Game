@@ -8,7 +8,7 @@ export const GamePage = () => {
   return (
     <div>
       <Stopwatch setscore={setscore} score={score}/>
-      {/* <ScoreBoard score={score}/> */}
+      <ScoreBoard score={score}/>
     </div>
   );
 };
