@@ -2,11 +2,14 @@ require('dotenv').config()
 const {connection}=require('./db')
 const express=require('express')
 const { GameRouter } = require('./Routes/Game.routes')
+const { UserAuthRoutes } = require('./Routes/UserAuth.routes')
 const app=express()
 
 app.use(express.json())
 
 app.use("/record",GameRouter)
+app.use("/UserAuth",UserAuthRoutes)
+
 
 app.listen(process.env.port,async()=>{
     try {
