@@ -13,7 +13,7 @@ export const Score = (prop: any) => {
   return (
     <div style={{ border: "0px solid", width: "100%" }}>
       <Button
-        colorScheme={"blue"}
+        colorScheme={"#1d1f20"}
         border={"1px"}
         h={"auto"}
         width={"90%"}
