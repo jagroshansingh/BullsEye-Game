@@ -6,8 +6,9 @@ import "../fonts/digital-7 (italic).ttf";
 import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
+import axios from "axios";
 
-export const Stopwatch = ({setscore,score}:any) => {
+export const Stopwatch = ({ setscore, score }: any) => {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
@@ -25,10 +26,19 @@ export const Stopwatch = ({setscore,score}:any) => {
     return () => clearInterval(interval);
   }, [running]);
 
-  
+  const record = () => {
+    let data = { playername: 'xyz', score: Math.abs(10000 - time), timestamp:time };
+    axios({
+      method: "post",
+      url: "http://localhost:9999/record",
+      data,
+    })
+      // .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="stopMain">
-      
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
@@ -56,9 +66,9 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                setscore((prevscore:any) => [...score, time])
-                console.log(setscore);
-                
+                setscore((prevscore: any) => [...score, time]);
+                record();
+                // console.log(setscore);
               }}
             >
               Stop
