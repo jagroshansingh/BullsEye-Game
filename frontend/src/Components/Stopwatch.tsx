@@ -12,6 +12,8 @@ export const Stopwatch = ({setscore,score}:any) => {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
+  const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
+  // console.log("scoreBoard", scoreBoard);
   useEffect(() => {
     let interval: any;
     if (running) {
@@ -23,9 +25,21 @@ export const Stopwatch = ({setscore,score}:any) => {
     }
     return () => clearInterval(interval);
   }, [running]);
+
+  
   return (
     <div className="stopMain">
-      <img style={{ width: "100px" }} src={sand} alt="" />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "5%",
+          gap: "5%",
+        }}
+      >
+        <img style={{ width: "10%" }} src={sand} alt="" />
+        <h1 className="buttonText">Tik Tik Tok</h1>
+      </div>
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
@@ -42,7 +56,6 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setRunning(true);
                 setBtn(1);
-                // console.log("btn", btn);
               }}
             >
               Start
@@ -54,9 +67,9 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                setcount(count+1)
-                setscore([count,...score])
-                // console.log("btn", btn);
+                setScoreBoard((prevScoreBoard) => [...scoreBoard, time])
+                console.log(scoreBoard);
+                
               }}
             >
               Stop
@@ -68,7 +81,6 @@ export const Stopwatch = ({setscore,score}:any) => {
               onClick={() => {
                 setTime(0);
                 setBtn(0);
-                // console.log("btn", btn);
               }}
             >
               Reset
