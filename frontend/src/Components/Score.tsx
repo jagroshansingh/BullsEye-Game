@@ -21,7 +21,10 @@ export const Score = (prop: any) => {
       >
         <VStack>
           <Heading size={"sm"}>Round {prop.count}</Heading>
-          <Text>{prop.props}</Text>
+          <Text>
+            {("0" + Math.floor((prop.props / 1000) % 60)).slice(-2)}:
+            {("0" + ((prop.props / 10) % 100)).slice(-2)}
+          </Text>
         </VStack>
       </Button>
     </div>

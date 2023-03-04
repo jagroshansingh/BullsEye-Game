@@ -26,7 +26,7 @@
   background-color: #1d1f20;
 }
 .stopMain {
-  width: 50%;
+  width: 90%;
   margin: auto;
 }
 
@@ -69,4 +69,12 @@
   100% {
     background-position: 0 0, 0 0;
   }
+}
+
+.tiktok {
+  font-family: "Young";
+  font-size: 4vw;
+  background: linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
