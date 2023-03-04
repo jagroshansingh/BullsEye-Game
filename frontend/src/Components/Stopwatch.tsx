@@ -1,18 +1,36 @@
 import { Button, HStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import "./Stopwatch.css";
 import "../fonts/digital-7.ttf";
 import "../fonts/digital-7 (italic).ttf";
 import "../fonts/digital-7 (mono italic).ttf";
 import "../fonts/digital-7 (mono).ttf";
 import sand from "../asset/sand.png";
+import axios from "axios";
 
 export const Stopwatch = ({ setscore, score }: any) => {
-  const [count, setcount] = useState(0);
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [btn, setBtn] = useState(0);
-  const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
+  const colors = ["red", "pink", "gold", "white"];
+  const conn = () => {
+    if (time === 10000) {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
+    } else {
+      setHeight(0);
+      setWidth(0);
+    }
+    setTimeout(() => {
+      console.log("Delayed for 1 second.");
+      setHeight(0);
+      setWidth(0);
+    }, 10000);
+  };
+  // const [scoreBoard, setScoreBoard] = useState<Number[]>([]);
   // console.log("scoreBoard", scoreBoard);
   useEffect(() => {
     let interval: any;
@@ -26,19 +44,31 @@ export const Stopwatch = ({ setscore, score }: any) => {
     return () => clearInterval(interval);
   }, [running]);
 
+  useEffect(() => {
+    conn();
+  }, [score]);
+
+  
+  const record = () => {
+    let data = { playername: 'xyz', score: Math.abs(10000 - time), timestamp:time };
+    axios({
+      method: "post",
+      url: "http://localhost:9999/record",
+      data,
+    })
+      // .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="stopMain">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "5%",
-          gap: "5%",
-        }}
-      >
-        <img style={{ width: "10%" }} src={sand} alt="" />
-        <h1 className="buttonText">Tik Tik Tok</h1>
-      </div>
+      <Confetti
+        style={{ background: "transparent" }}
+        numberOfPieces={300}
+        width={width}
+        height={height}
+        colors={colors}
+      />
       <div className="stopwatch demo animated" id="box">
         <div className="numbers">
           <span className="container">
@@ -66,8 +96,9 @@ export const Stopwatch = ({ setscore, score }: any) => {
               onClick={() => {
                 setRunning(false);
                 setBtn(2);
-                setScoreBoard((prevScoreBoard) => [...scoreBoard, time]);
-                console.log(scoreBoard);
+                setscore((prevscore: any) => [...score, time]);
+                record();
+                // console.log(setscore);
               }}
             >
               Stop
