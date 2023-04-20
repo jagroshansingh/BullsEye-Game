@@ -4,20 +4,20 @@ import "./LeaderBoard.css";
 import { Leader } from "./Leader";
 import axios from "axios";
 
-export const LeaderBoard = (score:any) => {
+export const LeaderBoard = (score: any) => {
   // const [score, setscore] = React.useState(["one", "two", "three"]);
   const [data, setData] = useState([]);
 
   const fetchData = () => {
     axios
-      .get("https://coral-coral-wig.cyclic.app/record/leaderboard")
+      .get(`${process.env.REACT_APP_URL}/record/leaderboard`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     fetchData();
-  }, [data,score]);
+  }, [data, score]);
   return (
     <div className="leaderMain">
       <Box

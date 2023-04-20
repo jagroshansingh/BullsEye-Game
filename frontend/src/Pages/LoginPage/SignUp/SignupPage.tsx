@@ -41,7 +41,7 @@ export const SignupPage = () => {
   const handleSignup = async () => {
     try {
       const res = await axios.post(
-        "https://coral-coral-wig.cyclic.app/UserAuth/register",
+        `${process.env.REACT_APP_URL}/UserAuth/register`,
         data
       );
       toast({

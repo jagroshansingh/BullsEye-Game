@@ -56,7 +56,7 @@ export const Stopwatch = ({ setscore, score }: any) => {
     };
     axios({
       method: "post",
-      url: "https://coral-coral-wig.cyclic.app/record",
+      url: `${process.env.REACT_APP_URL}/record`,
       data,
     })
       // .then((res) => console.log(res))
