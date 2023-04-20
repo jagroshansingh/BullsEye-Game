@@ -1,6 +1,7 @@
 # BullsEye-Game
 
-A simple but challanging game to test and master the reflexes.
+<p>A simple but challanging game to test and master the reflexes.</p>
+Play the game: https://bulseye.netlify.app/
 
 ## Team members:
 1. Ayush
