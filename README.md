@@ -1,7 +1,7 @@
 # BullsEye-Game
 
 <p>A simple but challanging game to test and master the reflexes.</p>
-Play the game: https://bulseye.netlify.app/
+Play the game: https://bullseye-zwjk.onrender.com
 
 ## Team members:
 1. Ayush
