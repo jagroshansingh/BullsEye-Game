@@ -18,6 +18,12 @@ Top scores are also visible in the left-side panel</p>
 
 Presentaion video: https://drive.google.com/file/d/1XDK4S5QFsQ8xRIfUul41XLHgKzLy3Mkc/view?usp=share_link
 
+## Snippets
+<div>
+  <img src="https://github.com/jagroshansingh/BullsEye-Game/blob/master/pics/GamePage.png?raw=true"/>
+  <img src="https://github.com/jagroshansingh/BullsEye-Game/blob/master/pics/LandingPage.png?raw=true"/>
+</div>
+
 ## Related links
 Backend Repo: https://github.com/jagroshansingh/game_backend
 
