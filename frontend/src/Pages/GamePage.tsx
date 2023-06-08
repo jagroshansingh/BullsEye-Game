@@ -3,17 +3,12 @@ import { ScoreBoard } from "../Components/ScoreBoard";
 import { Stopwatch } from "../Components/Stopwatch";
 import sand from "../asset/sand.png";
 import "../Components/Stopwatch.css";
-import { border } from "@chakra-ui/react";
+import { Box, border } from "@chakra-ui/react";
 import { LeaderBoard } from "../Components/LeaderBoard";
+import { About } from "../Components/About";
 
 export const GamePage = () => {
   const [score, setscore] = React.useState([]);
-  // const [update, setUpdate] = useState(false)
-
-  // const funUpdate = () => {
-  //   setUpdate(!update)
-  // }
-  // console.log(score)
   return (
     <div style={{height: "100vh" }}>
       <div
@@ -27,20 +22,12 @@ export const GamePage = () => {
       </div>
       <div className="gameMain">
         <LeaderBoard score={score} />
+        <Box width={'100%'}>
         <Stopwatch setscore={setscore} score={score} />
+        <About/>
+        </Box>
         <ScoreBoard score={score} />
       </div>
     </div>
   );
 };
-
-{
-  /* <img
-          style={{ width: "10%", height: "10%", border: "1px solid red" }}
-          src={sand}
-          alt=""
-        />
-        <h1 className="buttonText" style={{ border: "1px solid red" }}>
-          Tik Tik Tok
-        </h1> */
-}
