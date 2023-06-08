@@ -1,69 +1,66 @@
 import {
-    Flex,
-    Box,
-    Text,
-    FormLabel,
-    Input,
-    InputGroup,
-    HStack,
-    InputRightElement,
-    Stack,
-    Button,
-    useToast,
-  } from "@chakra-ui/react";
+  Flex,
+  Box,
+  Text,
+  FormLabel,
+  Input,
+  InputGroup,
+  HStack,
+  InputRightElement,
+  Stack,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import axios from "axios";
 import { json } from "stream/consumers";
+import { useNavigate } from "react-router-dom";
 
+export const LoginPage = ({ HandelChangeLogin }: any) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [serverLoading, SetServerLoading] = useState(false);
+  const toast = useToast();
+  const navigate = useNavigate();
+  const [data, setdata] = useState({
+    password: "",
+    user_name: "",
+  });
 
-export const LoginPage = ({HandelChangeLogin}:any) => {
-
-    const [showPassword, setShowPassword] = useState(false);
-    const [serverLoading, SetServerLoading] = useState(false);
-    const toast = useToast();
-    const [data, setdata] = useState({
-      password: "",
-      user_name: "",
+  const HandelFormChange = (e: any) => {
+    let { name, value } = e.target;
+    setdata({
+      ...data,
+      [name]: value,
     });
-  
-    const HandelFormChange = (e: any) => {
-      let { name, value } = e.target;
-      setdata({
-        ...data,
-        [name]: value,
+  };
+
+  const handleSignup = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_URL}/UserAuth/login`,
+        data
+      );
+      toast({
+        description: res.data.msg,
+        status: res.data.status,
+        duration: 9000,
+        isClosable: true,
       });
-    };
-  
-    const handleSignup = async () => {
-  
-      try {
-        const res = await axios.post(
-          "http://localhost:4000/UserAuth/login",
-          data
-        );
-        toast({
-          description: res.data.msg,
-          status: res.data.status,
-          duration: 9000,
-          isClosable: true,
-        });
 
-        if(res.data.msg === "User login successfully"){
-          console.log(res.data)
-          localStorage.setItem("TikTikTen", JSON.stringify(res.data))
-          // navigate("/")
-        }
-        console.log(res);
-      } catch (err) {
-        console.log(err);
+      if (res.data.msg === "User login successfully") {
+        console.log(res.data);
+        localStorage.setItem("gameData", JSON.stringify(res.data));
+        navigate("/game");
       }
-    };
-  
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    
-
-    return (
-        <Flex
+  return (
+    <div>
+      <Flex
         borderRadius={"5px"}
         flexDirection="column"
         gap={14}
@@ -90,24 +87,24 @@ export const LoginPage = ({HandelChangeLogin}:any) => {
           </Stack>
           <Box>
             <Stack>
-              <HStack>
-                
-              </HStack>
+              <HStack></HStack>
               <FormLabel>
-                <Text>User Name</Text>
+                <Text color={"white"}>User Name</Text>
               </FormLabel>
               <Input
+                color={"white"}
                 name="user_name"
                 onChange={(e) => HandelFormChange(e)}
                 type="text"
                 value={data.user_name}
               />
               <FormLabel>
-                <Text>Password</Text>
+                <Text color={"white"}>Password</Text>
               </FormLabel>
               <InputGroup>
                 <Input
                   name="password"
+                  color={"white"}
                   onChange={(e) => HandelFormChange(e)}
                   type={showPassword ? "text" : "Password"}
                   value={data.password}
@@ -154,5 +151,6 @@ export const LoginPage = ({HandelChangeLogin}:any) => {
           </Box>
         </Flex>
       </Flex>
-    )
-}
+    </div>
+  );
+};

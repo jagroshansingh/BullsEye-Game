@@ -4,11 +4,15 @@ import "./App.css";
 import { GamePage } from "./Pages/GamePage";
 import { ScoreBoard } from "./Components/ScoreBoard";
 import { Box, HStack } from "@chakra-ui/react";
+import { SignupPage } from "./Pages/LoginPage/SignUp/SignupPage";
+import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
   return (
     <div className="App">
-      <GamePage />
+      {/* <GamePage /> */}
+      {/* <SignupPage/> */}
+      <AllRoutes />
     </div>
   );
 }

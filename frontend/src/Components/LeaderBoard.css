@@ -9,3 +9,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.leaderMain {
+  width: 20%;
+}
+@media screen and (max-width: 768px){
+  .leaderMain{
+    width:100%
+  }
+}
